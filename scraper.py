@@ -16,11 +16,44 @@ governer_column_name = ['key','Name']
 governer_data_frame = pd.DataFrame(columns=governer_column_name)
 governer_file_name = 'governer_data.csv'
 
-house_data = 'https://ballotpedia.org/United_States_House_of_Representatives_elections/'
-senate_data = 'https://ballotpedia.org/United_States_Senate_elections/'
-governer_data = 'https://ballotpedia.org/Gubernatorial_elections/'
+house_data = 'https://ballotpedia.org/United_States_House_of_Representatives_elections,_2024'
+senate_data = 'https://ballotpedia.org/United_States_Senate_elections,_2024'
+governer_data = 'https://ballotpedia.org/Gubernatorial_elections,_2024'
 
 house_page_content = requests.get(house_data)
 senate_page_content = requests.get(senate_data)
 governer_page_content = requests.get(governer_data)
 
+# Algorithm for the house data:
+# Create 3d array to house data
+# Parse 1st 3 tables, store date in 3 seperate arrays.
+
+
+# Parse Candiates list, add data to profile
+
+
+# Parse Outside race ratings reports, add to profiles
+
+
+
+# Algorithm for the senate data:
+# Create 3d array to house data
+# Parse 1st 3 tables, store date in 3 seperate arrays.
+
+
+# Parse Candiates list, add data to profile
+
+
+# Parse Outside race ratings reports, add to profiles
+
+
+
+# Algorithm for the governer data:
+# Create 3d array to house data
+# Parse 1st 3 tables, store date in 3 seperate arrays.
+
+
+# Parse Candiates list, add data to profile
+
+
+# Parse Outside race ratings reports, add to profiles
