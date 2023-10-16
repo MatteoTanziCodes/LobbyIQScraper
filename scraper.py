@@ -3,9 +3,6 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-# Define Variables
-data_collection_type = 'Mock'
-
 ## Create Data Frame and Collection Structure
 house_column_name = ['key','Name']
 house_data_frame = pd.DataFrame(columns=house_column_name)
