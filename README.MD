@@ -40,7 +40,6 @@ https://ballotpedia.org/Gubernatorial_elections,_2024
 
 incumbents with running = {No, Yes, TBA}
 
-
 Alg:
 
 The process for this data scrapping is pretty simple, the page formatting essentially stores all the content in tables, just loop through the tables and pull/order the data however necessary. For House, I could pull together a list of every person, the associated district, running, retiring or seeking other offices, with the related districts cook and Sabato. I am not sure what analysis you want to perform with this but this would be the best way to format it for a relational DB, to allow for easy data processing. Each candidate can get a unique query ID.
@@ -48,3 +47,4 @@ The process for this data scrapping is pretty simple, the page formatting essent
 For State, you could do something similar, all the data is stored in one table, pull each candidate based on the previous header, and allocate that to the party, each state has a table row so pull the first column for the state, those retiring are a different table, pull this after and update the candidate to "Retiring" or "Seeking other office". Cooke and Sabato can be pulled the same way as the house, and then the result for that district can be associated. Likewise, each candidate will have a query ID.
 
 A similar process can be followed for Gubernatorial elections, and this scraper will be able to be reused such that the formatting on the page is not changed for each election.
+
