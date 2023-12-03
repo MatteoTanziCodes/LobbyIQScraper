@@ -1,37 +1,37 @@
-Key,Name,State,Incumbent Running,Cooke,Inside,Sabato
-35,Mark Gordon,Wyoming,Yes,N/A,N/A,N/A
-34,Tony Evers,Wisconsin,Yes,N/A,N/A,N/A
-33,Phil Scott,Vermont,Yes,Solid Republican,Solid Republican,Likely Republican
-32,Greg Abbott,Texas,Yes,N/A,N/A,N/A
-31,Bill Lee,Tennessee,Yes,N/A,N/A,N/A
-30,Kristi Noem,South Dakota,Yes,N/A,N/A,N/A
-29,Henry McMaster,South Carolina,Yes,N/A,N/A,N/A
-28,Daniel McKee,Rhode Island,Yes,N/A,N/A,N/A
-27,Tom Wolf,Pennsylvania,No*,N/A,N/A,N/A
-26,Kate Brown,Oregon,No*,N/A,N/A,N/A
-25,Kevin Stitt,Oklahoma,Yes,N/A,N/A,N/A
-24,Mike DeWine,Ohio,Yes,N/A,N/A,N/A
-23,Kathy Hochul,New York,Yes,N/A,N/A,N/A
-22,Michelle Lujan Grisham,New Mexico,Yes,N/A,N/A,N/A
-21,Chris Sununu,New Hampshire,Yes,Toss-up,Toss-up,Likely Republican
-20,Steve Sisolak,Nevada,Yes,N/A,N/A,N/A
-19,Pete Ricketts,Nebraska,No*,N/A,N/A,N/A
-18,Tim Walz,Minnesota,Yes,N/A,N/A,N/A
-17,Gretchen Whitmer,Michigan,Yes,N/A,N/A,N/A
-16,Charles D. Baker,Massachusetts,No,N/A,N/A,N/A
-15,Larry Hogan,Maryland,No*,N/A,N/A,N/A
-14,Janet Mills,Maine,Yes,N/A,N/A,N/A
-13,Laura Kelly,Kansas,Yes,N/A,N/A,N/A
-12,Kim Reynolds,Iowa,Yes,N/A,N/A,N/A
-11,J.B. Pritzker,Illinois,Yes,N/A,N/A,N/A
-10,Brad Little,Idaho,Yes,N/A,N/A,N/A
-9,David Ige,Hawaii,No*,N/A,N/A,N/A
-8,Brian Kemp,Georgia,Yes,N/A,N/A,N/A
-7,Ron DeSantis,Florida,Yes,N/A,N/A,N/A
-6,Ned Lamont,Connecticut,Yes,N/A,N/A,N/A
-5,Jared Polis,Colorado,Yes,N/A,N/A,N/A
-4,Gavin Newsom,California,Yes,N/A,N/A,N/A
-3,Asa Hutchinson,Arkansas,No*,N/A,N/A,N/A
-2,Doug Ducey,Arizona,No*,N/A,N/A,N/A
-1,Mike Dunleavy,Alaska,Yes,N/A,N/A,N/A
-0,Kay Ivey,Alabama,Yes,N/A,N/A,N/A
+Key,Name,ballotpedia_id,State,Incumbent Running,Cooke,Inside,Sabato
+0,Kay Ivey,https://ballotpedia.org//Kay_Ivey,Alabama,Yes,N/A,N/A,N/A
+1,Mike Dunleavy,https://ballotpedia.org//Mike_Dunleavy,Alaska,Yes,N/A,N/A,N/A
+2,Doug Ducey,https://ballotpedia.org//Doug_Ducey,Arizona,No*,N/A,N/A,N/A
+3,Asa Hutchinson,https://ballotpedia.org//Asa_Hutchinson,Arkansas,No*,N/A,N/A,N/A
+4,Gavin Newsom,https://ballotpedia.org//Gavin_Newsom,California,Yes,N/A,N/A,N/A
+5,Jared Polis,https://ballotpedia.org//Jared_Polis,Colorado,Yes,N/A,N/A,N/A
+6,Ned Lamont,https://ballotpedia.org//Ned_Lamont,Connecticut,Yes,N/A,N/A,N/A
+7,Ron DeSantis,https://ballotpedia.org//Ron_DeSantis,Florida,Yes,N/A,N/A,N/A
+8,Brian Kemp,https://ballotpedia.org//Brian_Kemp,Georgia,Yes,N/A,N/A,N/A
+9,David Ige,https://ballotpedia.org//David_Ige,Hawaii,No*,N/A,N/A,N/A
+10,Brad Little,https://ballotpedia.org//Brad_Little,Idaho,Yes,N/A,N/A,N/A
+11,J.B. Pritzker,https://ballotpedia.org//J.B._Pritzker,Illinois,Yes,N/A,N/A,N/A
+12,Kim Reynolds,https://ballotpedia.org//Kim_Reynolds,Iowa,Yes,N/A,N/A,N/A
+13,Laura Kelly,https://ballotpedia.org//Laura_Kelly_(Kansas),Kansas,Yes,N/A,N/A,N/A
+14,Janet Mills,https://ballotpedia.org//Janet_Mills,Maine,Yes,N/A,N/A,N/A
+15,Larry Hogan,https://ballotpedia.org//Larry_Hogan,Maryland,No*,N/A,N/A,N/A
+16,Charles D. Baker,https://ballotpedia.org//Charles_D._Baker,Massachusetts,No,N/A,N/A,N/A
+17,Gretchen Whitmer,https://ballotpedia.org//Gretchen_Whitmer,Michigan,Yes,N/A,N/A,N/A
+18,Tim Walz,https://ballotpedia.org//Tim_Walz,Minnesota,Yes,N/A,N/A,N/A
+19,Pete Ricketts,https://ballotpedia.org//Pete_Ricketts,Nebraska,No*,N/A,N/A,N/A
+20,Steve Sisolak,https://ballotpedia.org//Steve_Sisolak,Nevada,Yes,N/A,N/A,N/A
+21,Chris Sununu,https://ballotpedia.org//Chris_Sununu,New Hampshire,Yes,Toss-up,Toss-up,Toss-up
+22,Michelle Lujan Grisham,https://ballotpedia.org//Michelle_Lujan_Grisham,New Mexico,Yes,N/A,N/A,N/A
+23,Kathy Hochul,https://ballotpedia.org//Kathy_Hochul,New York,Yes,N/A,N/A,N/A
+24,Mike DeWine,https://ballotpedia.org//Mike_DeWine,Ohio,Yes,N/A,N/A,N/A
+25,Kevin Stitt,https://ballotpedia.org//Kevin_Stitt,Oklahoma,Yes,N/A,N/A,N/A
+26,Kate Brown,https://ballotpedia.org//Kate_Brown,Oregon,No*,N/A,N/A,N/A
+27,Tom Wolf,https://ballotpedia.org//Tom_Wolf,Pennsylvania,No*,N/A,N/A,N/A
+28,Daniel McKee,https://ballotpedia.org//Daniel_McKee,Rhode Island,Yes,N/A,N/A,N/A
+29,Henry McMaster,https://ballotpedia.org//Henry_McMaster,South Carolina,Yes,N/A,N/A,N/A
+30,Kristi Noem,https://ballotpedia.org//Kristi_Noem,South Dakota,Yes,N/A,N/A,N/A
+31,Bill Lee,https://ballotpedia.org//Bill_Lee,Tennessee,Yes,N/A,N/A,N/A
+32,Greg Abbott,https://ballotpedia.org//Greg_Abbott,Texas,Yes,N/A,N/A,N/A
+33,Phil Scott,https://ballotpedia.org//Phil_Scott,Vermont,Yes,Solid Republican,Solid Republican,Likely Republican
+34,Tony Evers,https://ballotpedia.org//Tony_Evers,Wisconsin,Yes,N/A,N/A,N/A
+35,Mark Gordon,https://ballotpedia.org//Mark_Gordon,Wyoming,Yes,N/A,N/A,N/A

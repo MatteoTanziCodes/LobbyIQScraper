@@ -1,4 +1,6 @@
 # Define imports
+from audioop import reverse
+import numpy as np
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -10,7 +12,7 @@ SPREADSHEET_PAGE_CONTENT = requests.get(RACERATINGS_URL)
 SPREADSHEET_SOUP = BeautifulSoup(SPREADSHEET_PAGE_CONTENT.content, 'html5lib')
 
 ## Create Data Frame and Collection Structure for the house
-HOUSE_COLUMN_NAME = ['Key','Name', 'Party', 'District', 'Status', 'Date Declared', 'Retiring', 'Seeking other Office', 'Running Senate', 'Cooke','Inside', 'Sabato']
+HOUSE_COLUMN_NAME = ['Key','Name', 'ballotpedia_id','Party', 'District', 'Status', 'Date Declared', 'Retiring', 'Seeking other Office', 'Running Senate', 'Cooke','Inside', 'Sabato']
 HOUSE_DATA_FRAME = pd.DataFrame(columns=HOUSE_COLUMN_NAME)
 HOUSE_FILE_NAME = 'house_data.csv'
 HOUSE_URL = 'https://ballotpedia.org/United_States_House_of_Representatives_elections,_2024'
@@ -21,7 +23,7 @@ RUNNINGSENATE_HEADER = 'Running for Senate, 2024'
 OTHEROFFICE_HEADER = 'Running for another office, 2024'
 
 ## Create Data Frame and Collection Structure for the senate
-SENATE_COLUMN_NAME = ['Key', 'Name', 'State', 'Retiring', 'Seeking other Office', 'Cooke','Inside', 'Sabato']
+SENATE_COLUMN_NAME = ['Key', 'Name', 'ballotpedia_id',  'State', 'Retiring', 'Seeking other Office', 'Cooke','Inside', 'Sabato']
 SENATE_DATA_FRAME = pd.DataFrame(columns=SENATE_COLUMN_NAME)
 SENATE_FILE_NAME = 'senate_data.csv'
 SENATE_URL = 'https://ballotpedia.org/United_States_Senate_elections,_2024'
@@ -31,7 +33,7 @@ RETIRINGSENATE_HEADER = 'Retiring from public office, 2024'
 RUNNINGGOVERNER_HEADER = 'Running for governor, 2024'
 
 ## Create Data Frame and Collection Structure for the governers office
-GOVERNER_COLUMN_NAME = ['Key','Name', 'State', 'Incumbent Running', 'Cooke','Inside', 'Sabato']
+GOVERNER_COLUMN_NAME = ['Key','Name','ballotpedia_id', 'State', 'Incumbent Running', 'Cooke','Inside', 'Sabato']
 GOVERNER_DATA_FRAME = pd.DataFrame(columns=GOVERNER_COLUMN_NAME)
 GOVERNER_FILE_NAME = 'governer_data.csv'
 GOVERNER_URL = 'https://ballotpedia.org/Gubernatorial_elections,_2024'
@@ -593,8 +595,10 @@ def scraper(file_name, soup, spread_soup):
                 candidiate_text = candidiate.find_all('a')
                 for text in candidiate_text:
                     input = text.getText()
+                    href = text.get('href')
                     input = input.replace('\t', '').replace('\n', '')
                     temp.append(input)
+                    temp.append(href)
                 party = row.find('td', attrs={'data-cell':'party'})
                 party_text = party.find_all('span')
                 for text in party_text:
@@ -707,10 +711,13 @@ def scraper(file_name, soup, spread_soup):
                             state = state_find.getText()
                             incumbent_find = table_data[1].find_all('a')
                             incumbent = incumbent_find[1].getText()
+                            href = incumbent_find[1].get('href')
+                            if 'https://ballotpedia.org/' not in href:
+                                    href = 'https://ballotpedia.org/'+href
                             running = table_data[2].getText()
-                            governor_candidates.insert(index, [key_counter,incumbent,state,running])
+                            governor_candidates.insert(index, [key_counter,incumbent,href,state,running])
                             key_counter+=1
-                        
+    
 
         # Process report data
         container = spread_soup.find('div', attrs={'id':'sheets-viewport'})
@@ -724,7 +731,7 @@ def scraper(file_name, soup, spread_soup):
                 if (text.getText() != ''):
                         spreadsheet_governor[index].append(text.getText())
             index+=1
-
+    
     
 def dataframe_to_csv(data_frame, file_name):
     data_frame.to_csv(file_name, index=False)
@@ -854,20 +861,24 @@ def process_data(target_array, input_array, normal_array1, normal_array2, key_co
 
         # Iterate through the names
         for name in names:
+            temp = name.split(" ")
+            firstname = temp[0]
+            lastname = temp [1]
+            href = "https://ballotpedia.org/"+firstname+"_"+lastname
             # Check if the name is in normal_array1 or normal_array2
             if name in normal_array1 or name in normal_array2:
                 # Remove the name from normal_array1 and normal_array2 if present
                 if name in normal_array1:
                     normal_array1.remove(name)
                     # Add a subarray to the target array with the state and name
-                    target_array.append([key_counter, name, state, "Yes", "No"])
+                    target_array.append([key_counter, name, href, state, "Yes", "No"])
                 if name in normal_array2:
                     normal_array2.remove(name)
                     # Add a subarray to the target array with the state and name
-                    target_array.append([key_counter, name, state, "No", "Yes"])
+                    target_array.append([key_counter, name, href, state, "No", "Yes"])
             else:
                 # Add a subarray to the target array with the state and name
-                target_array.append([key_counter, name, state, "No", "No"])
+                target_array.append([key_counter, name, href, state, "No", "No"])
             key_counter+=1
     return key_counter
 
@@ -914,7 +925,7 @@ def spreadsheet_process2(govorsen,spreadsheet):
             
 def pad_2d_arrays(arr1, arr2, arr3):
     # Define the expected lengths for each 2D array
-    expected_lengths = [12, 8, 7]  # You can customize these values
+    expected_lengths = [13, 9, 8]  # You can customize these values
 
     # Iterate through each subarray in the three arrays
     for subarray in arr1:
@@ -962,6 +973,7 @@ governers = governor_candidates
 spreadsheet_process(house,spreadsheet_house,us_house_dict)
 spreadsheet_process2(senate,spreadsheet_senate)
 spreadsheet_process2(governers,spreadsheet_governor)
+governers = np.flip(governers, axis=0)
 pad_2d_arrays(house, senate, governers)
 
 # Add array to data frame and convert to CSV
